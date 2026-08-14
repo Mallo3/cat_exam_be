@@ -1,0 +1,18 @@
+service: cat-exam-native-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+  environment:
+    MONGODB_URI: ${env:MONGODB_URI}
+    API_SECRET: ${env:API_SECRET}
+  httpApi:
+    cors: true # API Gateway v2 handles CORS automatically here
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      # This catches everything and sends it to your vanilla JS router
+      - httpApi: '*'
