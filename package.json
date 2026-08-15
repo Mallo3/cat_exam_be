@@ -2,7 +2,14 @@
   "name": "cat-exam-native-lambda",
   "version": "1.0.0",
   "dependencies": {
-    "mongodb": "^6.8.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.8.0"
+  },
+  "scripts": {
+    "dev": "serverless offline --httpPort 4000"
+  },
+  "devDependencies": {
+    "serverless": "^3.39.0",
+    "serverless-offline": "^13.8.2"
   }
 }

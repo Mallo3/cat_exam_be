@@ -1,4 +1,5 @@
 service: cat-exam-native-api
+useDotenv: true
 
 provider:
   name: aws
@@ -9,6 +10,9 @@ provider:
     API_SECRET: ${env:API_SECRET}
   httpApi:
     cors: true # API Gateway v2 handles CORS automatically here
+
+plugins:
+  - serverless-offline
 
 functions:
   api:
