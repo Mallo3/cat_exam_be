@@ -1,0 +1,63 @@
+{
+  "/Users/soumallya/Desktop/cat/cat_exam_be/serverless.yml": {
+    "versionFramework": "4.41.0",
+    "servicePath": "/Users/soumallya/Desktop/cat/cat_exam_be/serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "cat-exam-native-api",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "ap-south-1",
+        "environment": {
+          "MONGODB_URI": "${env:MONGODB_URI}",
+          "API_SECRET": "<REDACTED>"
+        },
+        "httpApi": {
+          "cors": true
+        }
+      },
+      "plugins": [
+        "serverless-offline"
+      ],
+      "functions": {
+        "api": {
+          "handler": "index.handler",
+          "events": [
+            {
+              "httpApi": "*"
+            }
+          ]
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "region": "ap-south-1",
+      "environment": {
+        "MONGODB_URI": "${env:MONGODB_URI}",
+        "API_SECRET": "<REDACTED>"
+      },
+      "httpApi": {
+        "cors": true
+      }
+    },
+    "error": {
+      "message": "You must sign in or use a license key with Serverless Framework V.4 and later versions. Please use \"serverless login\".",
+      "stack": "Error: You must sign in or use a license key with Serverless Framework V.4 and later versions. Please use \"serverless login\".\n    at Authentication.getAuthenticatedData (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:2266:3023)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async Authentication.authenticate (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:2269:4124)\n    at async TraditionalRunner.resolveVariablesAndAuthenticate (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:2277:2394)\n    at async TraditionalRunner.run (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:3205:26350)\n    at async route (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:3745:3725)\n    at async Object.run (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:3746:3955)\n    at async run2 (file:///Users/soumallya/.serverless/releases/4.41.0/package/dist/sf-core.js:3746:5119)"
+    },
+    "serviceRawFile": "service: cat-exam-native-api\n\nprovider:\n  name: aws\n  runtime: nodejs18.x\n  region: ap-south-1\n  environment:\n    MONGODB_URI: ${env:MONGODB_URI}\n    API_SECRET: ${env:API_SECRET}\n  httpApi:\n    cors: true # API Gateway v2 handles CORS automatically here\n\nplugins:\n  - serverless-offline\n\nfunctions:\n  api:\n    handler: index.handler\n    events:\n      # This catches everything and sends it to your vanilla JS router\n      - httpApi: '*'",
+    "command": [
+      "offline"
+    ],
+    "options": {
+      "httpPort": "4000"
+    },
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
